@@ -5,3 +5,11 @@ app.MapGet("/", () => "Hello World!");
 app.MapGet("/api", () => "New api!!!");
 
 app.Run();
+
+
+public class MiniApi
+{
+    static void Main() {
+    }
+}
+
