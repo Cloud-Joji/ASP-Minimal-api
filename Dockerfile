@@ -16,7 +16,7 @@ COPY . .
 # Se trabaja ahora en la carpeta base (1)
 WORKDIR "/src/ASPMinimalAPI"
 
-RUN cat "ASPMinimalAPI.csproj"
+RUN cat "Program.cs"
 
 RUN dotnet build "ASPMinimalAPI.csproj" -c Release -o /app/build
 
