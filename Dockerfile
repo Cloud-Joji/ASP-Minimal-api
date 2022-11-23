@@ -15,15 +15,12 @@ RUN dotnet restore "/src/ASPMinimalAPI/ASPMinimalAPI.csproj"
 COPY . .
 # Se trabaja ahora en la carpeta base (1)
 WORKDIR "/src/ASPMinimalAPI"
-
-RUN cat "/src/Program.cs"
-
-RUN dotnet build "ASPMinimalAPI.csproj" -c Release -o /app/build
+RUN dotnet build "ASPMinimalAPI.csproj" -c Release -o ./app/build
 
 FROM build AS publish
 RUN dotnet publish "ASPMinimalAPI.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
-WORKDIR /app
+WORKDIR /src/app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "ASPMinimalAPI.dll"]
