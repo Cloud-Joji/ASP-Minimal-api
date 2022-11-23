@@ -4,9 +4,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/", () => "Hello world! Try /api or /lol route");
 app.MapGet("/api", () => "New api!!!");
-app.MapGet("/lol", () => "LOL LMAO GAY XD ROFL");
+app.MapGet("/lol", () => "LOL LMAO XD ROFL");
 
 app.Run();
 
